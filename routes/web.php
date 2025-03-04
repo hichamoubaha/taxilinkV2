@@ -5,6 +5,14 @@ use App\Http\Controllers\TripController;
 use App\Http\Controllers\DriverAvailabilityController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::resource('admin/users', UserController::class);
+    Route::resource('admin/trips', TripController::class);
+    Route::resource('admin/availabilities', DriverAvailabilityController::class);
+});
 
 
 // Trips route
