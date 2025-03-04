@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@taxilink.com',
-            'password' => bcrypt('admin123'),
+            'password' => bcrypt('admin1234'),
         ]);
         $admin->assignRole('admin');
     }

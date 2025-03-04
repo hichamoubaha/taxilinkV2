@@ -44,7 +44,14 @@
                             <a class="nav-link" href="{{ route('trips.index') }}">My Trips</a>
                         </li>
                     @endif
-
+                    
+                    <!-- Show "Admin Dashboard" link only for admins -->
+                    @if(auth()->check() && auth()->user()->hasRole('admin'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                        </li>
+                    @endif
+                    
                     <!-- Show "My Availabilities" and "My Reservations" links only for drivers -->
                     @if(auth()->check() && auth()->user()->hasRole('driver'))
                         <li class="nav-item">
@@ -67,18 +74,18 @@
                             </a>
                             <!-- Dropdown Menu -->
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-    <li>
-        <a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a>
-    </li>
-    <li><hr class="dropdown-divider"></li>
-    <li>
-        <!-- Logout Form -->
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="dropdown-item">Logout</button>
-        </form>
-    </li>
-</ul>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <!-- Logout Form -->
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
                         </li>
                     @endauth
                 </ul>
