@@ -15,7 +15,7 @@
 <div class="container">
     <h1>My Trips</h1>
 
-    <!-- Show "Book a Trip" button only for passengers -->
+    <!-- Show "Book a Trips" button only for passengers -->
     @if(auth()->user()->hasRole('passenger'))
         <a href="{{ route('trips.create') }}" class="btn btn-primary mb-3">Book a Trip</a>
     @endif
