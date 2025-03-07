@@ -22,3 +22,4 @@ class IsAdmin
         return redirect('/')->with('error', 'Vous n\'avez pas accès à cette page.');
     }
 }
+//is
