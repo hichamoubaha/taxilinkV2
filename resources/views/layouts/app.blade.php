@@ -93,7 +93,7 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Contents -->
     <div class="container mt-4">
         @yield('content')
     </div>
