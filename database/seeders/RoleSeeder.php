@@ -9,7 +9,7 @@ class RoleSeeder extends Seeder
 {
     public function run()
     {
-        // Create roles if they don't exist
+        // Create roles if they don't exists
         Role::firstOrCreate(['name' => 'passenger']);
         Role::firstOrCreate(['name' => 'driver']);
     }
