@@ -10,7 +10,7 @@ class DriverAvailability extends Model
     use HasFactory;
 
     protected $fillable = [
-        'driver_id', // Correct column name
+        'driver_id', // Correct column names
         'available_from',
         'available_to',
     ];
