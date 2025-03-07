@@ -24,7 +24,7 @@
                             @enderror
                         </div>
 
-                        <!-- Email -->
+                        <!-- Email. -->
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold"><i class="fas fa-envelope me-2"></i>{{ __('Adresse Email') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" style="padding: 0.8rem; border: 1px solid #e1e1e1; border-radius: 5px;">
