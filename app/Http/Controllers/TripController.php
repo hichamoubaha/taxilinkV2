@@ -10,7 +10,7 @@ class TripController extends Controller
 {
     public function index()
 {
-    // Get all trips for the logged-in passenger, excluding canceled trips
+    // Get all trips for the logged-in passenger, excluding canceled trip
     $trips = Trip::where('passenger_id', auth()->id())
         ->where('status', '!=', 'canceled') // Exclude canceled trips
         ->get();
