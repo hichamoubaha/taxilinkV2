@@ -54,3 +54,4 @@ class DriverAvailabilityController extends Controller
         return redirect()->route('admin.availabilities.index')->with('success', 'Availability deleted successfully!');
     }
 }
+//new
