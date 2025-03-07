@@ -20,7 +20,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile.
+     * Update the user's profile
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
