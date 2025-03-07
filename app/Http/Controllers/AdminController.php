@@ -14,7 +14,7 @@ class AdminController extends Controller
         return view('admin.users', compact('users'));
     }
 
-    // Afficher le formulaire d'édition d'un utilisateur
+    // Afficher le formulaire d'édition d'un utilisateurs
     public function editUser($id)
     {
         $user = User::findOrFail($id);
