@@ -3,18 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Trip;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function dashboard()
+    // Afficher tous les utilisateurs
+    public function users()
     {
-        $totalUsers = User::count();
-        $totalTrips = Trip::count();
-        $totalCanceledTrips = Trip::where('status', 'canceled')->count();
-        $totalRevenue = Trip::where('status', 'completed')->sum('amount'); // Ensure 'amount' column exists
+        $users = User::whereIn('role', ['driver', 'passenger'])->get();
+        return view('admin.users', compact('users'));
+    }
 
-        return view('admin.dashboard', compact('totalUsers', 'totalTrips', 'totalCanceledTrips', 'totalRevenue'));
+    // Afficher le formulaire d'édition d'un utilisateur
+    public function editUser($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.edit-user', compact('user'));
+    }
+
+    // Mettre à jour un utilisateur
+    public function updateUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->update($request->only(['name', 'email', 'role']));
+        return redirect()->route('admin.users')->with('success', 'Utilisateur mis à jour avec succès.');
+    }
+
+    // Supprimer un utilisateur
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('admin.users')->with('success', 'Utilisateur supprimé avec succès.');
     }
 }
